@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #mapDownload { 
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapDownload"></div>
+    <script>
+        var mapDownload;
+        function getQueryParams(qs) {
+            qs = qs.split('+').join(' ');
+
+            var params = {},
+                tokens,
+                re = /[?&]?([^=]+)=([^&]*)/g;
+
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+
+            return params;
+        }
+        function init() {
+            var query = getQueryParams(document.location.search);
+            var data = JSON.parse(query.data);
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ1bm9zdHJpbmRhZGUiLCJhIjoiY2ptb2J5N2w4MTMzZjNvcWNhM3c0eng0MiJ9.77-ux9J6UjvGAlSGxiu6YA';
+            mapDownload = new mapboxgl.Map({
+                container: 'mapDownload',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                center: [-40.2922, -20.3305],
+                zoom: 13,
+            });
+
+            mapDownload.on('load', function() {
+                if (data) {
+                    carregaPontos(data);
+                }
+            });
+            
+            return true;
+        }
+        function carregaPontos(coord) {
+            if (coord) {
+                coord.forEach(function myFunction(item, index) {
+                    marker = new mapboxgl.Marker()
+                        .setLngLat(item)
+                        .addTo(mapDownload);
+                });
+
+                mapDownload.addSource('trace', {
+                    type: 'geojson',
+                    data: {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Polygon',
+                            'coordinates': [coord]
+                        }
+                    }
+                });
+                mapDownload.addLayer({
+                    "id": "trace",
+                    "type": "line",
+                    "source": "trace",
+                    "paint": {
+                        "line-color": "yellow",
+                        "line-opacity": 0.75,
+                        "line-width": 5
+                    }
+                });
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            init();
+        });
+    </script>
+</body>
+</html>

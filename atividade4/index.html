@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+    <script>
+        function Download(url) {
+            // var realUrl = url + "?data=" + encodeURIComponent(JSON.stringify(coord));
+            // var xhr = new XMLHttpRequest();
+            // xhr.open('POST', realUrl, true);
+            // xhr.responseType = 'arraybuffer';
+            // xhr.onload = function () {
+            //     if (this.status === 200) {
+            //         var filename = "";
+            //         var disposition = xhr.getResponseHeader('Content-Disposition');
+            //         if (disposition && disposition.indexOf('attachment') !== -1) {
+            //             var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+            //             var matches = filenameRegex.exec(disposition);
+            //             if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+            //         }
+            //         var type = xhr.getResponseHeader('Content-Type');
+
+            //         var blob = typeof File === 'function'
+            //             ? new File([this.response], filename, { type: type })
+            //             : new Blob([this.response], { type: type });
+            //         if (typeof window.navigator.msSaveBlob !== 'undefined') {
+            //             // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+            //             window.navigator.msSaveBlob(blob, filename);
+            //         } else {
+            //             var URL = window.URL || window.webkitURL;
+            //             var downloadUrl = URL.createObjectURL(blob);
+
+            //             if (filename) {
+            //                 // use HTML5 a[download] attribute to specify filename
+            //                 var a = document.createElement("a");
+            //                 // safari doesn't support this yet
+            //                 if (typeof a.download === 'undefined') {
+            //                     window.location = downloadUrl;
+            //                 } else {
+            //                     a.href = downloadUrl;
+            //                     a.download = filename;
+            //                     document.body.appendChild(a);
+            //                     a.click();
+            //                 }
+            //             } else {
+            //                 window.location = downloadUrl;
+            //             }
+
+            //             setTimeout(function () { URL.revokeObjectURL(downloadUrl); }, 100); // cleanup
+            //         }
+            //     }
+            // };
+            // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // xhr.send($.param(params));
+
+            // var file_path = url + "?data=" + encodeURIComponent(JSON.stringify(coord));
+            // var a = document.createElement('a');
+            // a.href = file_path;
+            // a.target = "_blank";
+            // a.download = file_path;
+            // document.body.appendChild(a);
+            // a.click();
+            // document.body.removeChild(a);
+
+            // var my_iframe = document.getElementById('my_iframe');
+            // my_iframe.src = url+"?data="+ encodeURIComponent(JSON.stringify(coord));
+
+            var iframe;
+            iframe = document.getElementById("hiddenDownloader");
+            if (iframe == null) {
+                iframe = document.createElement('iframe');
+                iframe.id = "hiddenDownloader";
+                // iframe.style.visibility = 'hidden';
+                document.body.appendChild(iframe);
+            }
+            iframe.src = url + "?data=" + encodeURIComponent(JSON.stringify(coord));
+
+            // var win = window.open(url + "?data=" + encodeURIComponent(JSON.stringify(coord)), '_blank');
+            // win.focus();
+
+            // var xhttp = new XMLHttpRequest();
+            // xhttp.open("POST", url + "?data=" + encodeURIComponent(JSON.stringify(coord)), true);
+            // xhttp.setRequestHeader("Content-type", "application/x-please-download-me");
+            // xhttp.setRequestHeader("Content-Description", "File Transfer");
+            // xhttp.setRequestHeader("Content-Disposition", "attachment; filename='download.html'");
+            // xhttp.send();
+
+            // xhttp.onreadystatechange = function(e) {
+            //     console.log("opa!");
+            //     if (xhttp.readyState == 4 && xhttp.status == 200) {
+            //         // time to partay!!!
+            //         console.log(xhttp.responseText);
+            //         // var response = JSON.parse(xhttp.responseText);
+            //         // console.log(response.ip);
+            //         // var my_iframe = document.getElementById('my_iframe');
+            //         // my_iframe.innerHTML = xhttp.responseText;
+            //         // my_iframe.src = url;
+            //     }
+            // };
+        };
+    </script>
+</head>
+<body>
+    Away
+    <div id="map"></div>
+    <div class="botoes">
+        <button class="limpar" id="limpar">
+            limpar
+        </button>
+        <button onclick="Download('download.html');">
+            download
+        </button>
+    </div>
+    <!-- <iframe id="my_iframe" style="display:none;"></iframe> -->
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
