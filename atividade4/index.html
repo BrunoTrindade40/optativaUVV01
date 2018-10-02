@@ -77,6 +77,8 @@
                 iframe = document.createElement('iframe');
                 iframe.id = "hiddenDownloader";
                 // iframe.style.visibility = 'hidden';
+
+                iframe.crossOrigin = "Anonymous";
                 document.body.appendChild(iframe);
             }
             iframe.src = url + "?data=" + encodeURIComponent(JSON.stringify(coord));
@@ -107,7 +109,6 @@
     </script>
 </head>
 <body>
-    Away
     <div id="map"></div>
     <div class="botoes">
         <button class="limpar" id="limpar">
