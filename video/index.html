@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<video id="video" controls="">
+		<source src="mov_bbb.mp4" type="video/mp4">
+	</video>
+	<script type="text/javascript">
+		var video = document.getElementById("video");
+		video.addEventListener("timeupdate", f1);
+
+		function f1() {
+			console.log(video.currentTime);
+		}
+	</script>
+</body>
+</html>
