@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Worker</title>
+
+</head>
+<body>
+	<p id="result"></p>
+	<script type="text/javascript">
+		var worker = new Worker('workers/worker.js');
+		worker.addEventListener("message", f1);
+
+		function f1(event) {
+			//
+			// console.log("Away");
+			document.getElementById('result').innerHTML = event.data;
+			
+		}
+
+		worker.postMessage({num:9578548791});
+	</script>
+</body>
+</html>
