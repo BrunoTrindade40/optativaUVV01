@@ -1,8 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+  </head>
   <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
+
+    <div class="controllers">
+      <div class="step-backward">
+        <button type="button" class="btn btn-primary"><i class="fas fa-step-backward"></i></button>
+      </div>
+      <div class="backward">
+        <button type="button" class="btn btn-primary"><i class="fas fa-backward"></i></button>
+      </div>
+      <div class="play">
+        <button type="button" class="btn btn-primary"><i class="fas fa-play"></i></button>
+      </div>
+      <div class="pause">
+        <button type="button" class="btn btn-primary"><i class="fas fa-pause"></i></button>
+      </div>
+      <div class="replay">
+        <button type="button" class="btn btn-primary"><i class="fas fa-redo-alt"></i></button>
+      </div>
+      <div class="forward">
+        <button type="button" class="btn btn-primary"><i class="fas fa-forward"></i></button>
+      </div>
+      <div class="step-forward">
+        <button type="button" class="btn btn-primary"><i class="fas fa-step-forward"></i></button>
+      </div>
+    </div>
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -44,14 +74,14 @@
       function stopVideo() {
         player.stopVideo();
 
-        /*player.cueVideoById("uG8V9dRqSsw",
-                    0,
-                    "large");*/
+        // player.cueVideoById("uG8V9dRqSsw",
+        //             0,
+        //             "large");
 
-        /*player.loadVideoById("uG8V9dRqSsw",
-                    5,
-                    "large");*/
-        //player.setSize(800,800);
+        // player.loadVideoById("uG8V9dRqSsw",
+        //             5,
+        //             "large");
+        // player.setSize(800,800);
       }
     </script>
   </body>
