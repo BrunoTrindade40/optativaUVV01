@@ -216,6 +216,14 @@ div.curriculo div.estudo ul.pontos li.ponto > div.texto {
   min-height: 100px;
   padding: 5px 30px;
   color: #FFF;
+  display: flex;
+  flex-flow: column nowrap;
+}
+div.curriculo div.estudo ul.pontos li.ponto.esq > div.texto {
+  align-items: flex-end;
+}
+div.curriculo div.estudo ul.pontos li.ponto.dir > div.texto {
+  align-items: flex-start;
 }
 
 div.curriculo div.estudo ul.pontos li.ponto > div.linha {
