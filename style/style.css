@@ -13,6 +13,7 @@ body {
     sans-serif;
 }
 
+/* *** Menu *** */
 nav.menu-principal,
 section .conteudo,
 div.btn-expandir,
@@ -52,7 +53,7 @@ div.btn-expandir>i {
 div.btn-expandir>i:hover {
   color: #E8354B;
 }
-
+/* *** Menu > Foto *** */
 div.foto-area {
   width: 80px;
   height: 180px;
@@ -73,7 +74,7 @@ div.foto-area > img.foto-img {
 div.foto-area > img.foto-img:hover {
   border: 3px solid #E8354B;
 }
-
+/* *** Menu > Listas *** */
 ul.lista-pg a,
 ul.lista-rs a {
   color: #FFF;
@@ -106,7 +107,7 @@ ul.lista-pg > li.pg:hover,
 ul.lista-rs > li.rs:hover {
   background-color: #E8354B;
 }
-
+/* *** Menu > Menu expandido *** */
 nav.menu-principal.expandir {
   width: 300px;
 }
@@ -131,7 +132,7 @@ nav.menu-principal.expandir ul.lista-rs a > span {
   padding-left: 15px;
   opacity: 1;
 }
-
+/* *** Conteudo *** */
 section.conteudo {
   width: 100vw;
 }
@@ -144,7 +145,7 @@ section.conteudo > div.sobre {
   padding-left: 20%;
   padding-right: 5%;
 }
-
+/* *** Conteudo > Sobre *** */
 div.sobre > div.autor {
   display: flex;
   width: 60%;
@@ -153,20 +154,18 @@ div.sobre > div.autor {
 }
 div.sobre div.autor > div.parte-meio {
   margin: 160px 0;
+  position: relative;
 }
 div.sobre div.autor div.parte-meio > h2.funcao {
   padding-left: 30px;
-  transition: .5s;
+  transition: 1s;
   opacity: 0;
-  display: none;
+  position: absolute;
 }
-
 div.sobre div.autor div.parte-meio > h2.funcao.ativo {
   padding-left: 0;
   opacity: 1;
-  display: inline-block;
 }
-
 div.sobre > div.img-maior {
   width: 40%;
   display: flex;
@@ -191,9 +190,73 @@ div.sobre div.parte-inferior > div.esq,
 div.sobre div.parte-inferior > div.dir {
   width: 50%;
 }
-
+/* *** Conteudo > Curriculo *** */
 section.conteudo > div.curriculo {
   background-color: #E8354B;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
+}
+
+div.curriculo > div.estudo {
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 5%;
+}
+div.curriculo div.estudo > ul.pontos {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+div.curriculo div.estudo ul.pontos > li.ponto {
+  width: 100%;
+  display: flex;
+}
+div.curriculo div.estudo ul.pontos li.ponto > div.texto {
+  width: 49.9%;
+  min-height: 100px;
+  padding: 5px 30px;
+  color: #FFF;
+}
+
+div.curriculo div.estudo ul.pontos li.ponto > div.linha {
+  width: .2%;
+  background-color: #FFF;
+}
+div.curriculo div.estudo ul.pontos li.ponto > div.data {
+  color: #FFF;
+  position: relative;
+  display: flex;
+  width: 49.9%;
+  justify-content: flex-end;
+}
+div.curriculo div.estudo ul.pontos li.ponto div.data > span {
+  font-size: 20px;
+  padding-top: 5px;
+}
+div.curriculo div.estudo ul.pontos li.ponto div.data > span.marcacao {
+  position: absolute;
+}
+div.curriculo div.estudo ul.pontos > li.ponto.esq,
+div.curriculo div.estudo ul.pontos li.ponto.esq > div.data {
+  flex-flow: row-reverse nowrap;
+}
+div.curriculo div.estudo ul.pontos li.ponto.esq div.data > span.marcacao {
+  left: -11px;
+}
+
+div.curriculo div.estudo ul.pontos li.ponto.esq div.data > span.periodo {
+  padding-left: 30px;
+}
+
+div.curriculo div.estudo ul.pontos > li.ponto.dir,
+div.curriculo div.estudo ul.pontos li.ponto.dir > div.data {
+  flex-flow: row nowrap;
+}
+
+div.curriculo div.estudo ul.pontos li.ponto.dir div.data > span.marcacao {
+  right: -11px;
+}
+
+div.curriculo div.estudo ul.pontos li.ponto.dir div.data > span.periodo {
+  padding-right: 30px;
 }
